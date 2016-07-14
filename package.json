@@ -1,10 +1,10 @@
 {
   "name": "tinydb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "简易 json 本地存储",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require should --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/52cik/tinydb/issues"
   },
-  "homepage": "https://github.com/52cik/tinydb#readme"
+  "homepage": "https://github.com/52cik/tinydb#readme",
+  "dependencies": {
+    "mocha": "^2.5.3",
+    "should": "^9.0.2"
+  }
 }
