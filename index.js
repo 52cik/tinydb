@@ -7,16 +7,14 @@ class TinyDB {
     this.file = file || 'db.json'
     this.data = data || {}
 
-    if (data) {
-      this.save()
-    } else {
-      this.load()
-    }
+    this.load()
+
+    process.on('exit', _ => this.save())
   }
 
   load() {
     if (fs.existsSync(this.file)) {
-      this.data = JSON.parse(fs.readFileSync(this.file).toString().trim() || '{}')
+      Object.assign(this.data, JSON.parse(fs.readFileSync(this.file).toString().trim() || '{}'))
     }
 
     return this
@@ -38,7 +36,7 @@ class TinyDB {
   }
 
   del(key) {
-    delete this._db[key]
+    delete this.data[key]
     this.save()
 
     return this
