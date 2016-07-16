@@ -6,6 +6,7 @@ class TinyDB {
   constructor(file, data) {
     this.file = file || 'db.json'
     this.data = data || {}
+    this._json = ''
 
     this.load()
 
@@ -14,14 +15,18 @@ class TinyDB {
 
   load() {
     if (fs.existsSync(this.file)) {
-      Object.assign(this.data, JSON.parse(fs.readFileSync(this.file).toString().trim() || '{}'))
+      this._json = fs.readFileSync(this.file).toString().trim() || '{}'
+      Object.assign(this.data, JSON.parse(this._json))
     }
-
-    return this
   }
 
   save() {
-    fs.writeFileSync(this.file, JSON.stringify(this.data))
+    let json = JSON.stringify(this.data)
+
+    if (json !== this._json) {
+      fs.writeFileSync(this.file, json)
+      this._json = json
+    }
   }
 
   get(key) {
@@ -45,6 +50,8 @@ class TinyDB {
   clear() {
     this.data = {}
     this.save()
+
+    return this
   }
 }
 
