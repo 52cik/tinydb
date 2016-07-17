@@ -49,7 +49,6 @@ class TinyDB {
 
   clear() {
     this.data = {}
-    this.save()
 
     return this
   }
