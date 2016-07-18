@@ -4,7 +4,8 @@
   "description": "简易 json 本地存储",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require should --reporter spec"
+    "test": "mocha --require should --reporter spec",
+    "test-cov": "istanbul cover ./node_modules/.bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "dependencies": {
     "mocha": "^2.5.3",
     "should": "^9.0.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.4"
   }
 }
