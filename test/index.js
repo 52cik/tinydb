@@ -19,13 +19,19 @@ describe('测试用例:', _ => {
   })
 
   it('多次实例化测试', () => {
+
+    fs.writeFileSync('db.json', '')
     new tinydb()
       .set('key', 'val')
       .get('key').should.equal('val')
 
+    fs.unlinkSync('db.json')
     new tinydb()
       .set('key', 'newval')
       .get('key').should.equal('newval')
+
+    new tinydb()
+      .save()
   })
 
   it('复杂数据测试', () => {
