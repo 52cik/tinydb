@@ -10,6 +10,7 @@ class TinyDB {
 
     this.load()
 
+    /* istanbul ignore next */
     process.on('exit', _ => this.save())
   }
 
@@ -23,7 +24,7 @@ class TinyDB {
   save() {
     let json = JSON.stringify(this.data)
 
-    if (json !== this._json) {
+    if (json !== this._json || !fs.existsSync(this.file)) {
       fs.writeFileSync(this.file, json)
       this._json = json
     }
