@@ -21,11 +21,12 @@
     "url": "https://github.com/52cik/tinydb/issues"
   },
   "homepage": "https://github.com/52cik/tinydb#readme",
-  "dependencies": {
-    "mocha": "^2.5.3",
-    "should": "^9.0.2"
-  },
   "devDependencies": {
+    "mocha": "^2.5.3",
+    "should": "^9.0.2",
     "istanbul": "^0.4.4"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }
