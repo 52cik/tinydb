@@ -70,4 +70,4 @@ let val2 = db.get(key2) // [1, '2', {a: 3}]
 [dependencies-image]: https://img.shields.io/david/52cik/tinydb.svg?style=flat
 
 [node-url]: https://nodejs.org
-[node-image]: https://img.shields.io/node/v/gh-badges.svg
+[node-image]: https://img.shields.io/badge/node-%3E%3D%204.0.0-brightgreen.svg
